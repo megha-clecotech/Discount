@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  database: coupon_db_dev
+  host: localhost
+  pool: 5
+  username: megha
+  password: 12345678
+test:
+  adapter: postgresql
+  database: coupon_db_test
+  host: localhost
+  pool: 5
+  username: megha
+  password: 12345678
