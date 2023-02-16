@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    resources :coupons
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "coupons#index"
+  # root "coupons#index"
   # Defines the root path route ("/")
   # root "articles#index"
   
