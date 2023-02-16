@@ -1,0 +1,15 @@
+<h1>Coupons</h1>
+<% @coupons.each do |c|%>
+    <strong>ID :</strong><%= c.id %><br/>
+    <%= c.title %><br/>
+    <%= c.description %><br/>
+    <%= c.code %><br/>
+    <% if c.coupon_file.attached? %>
+        <%= image_tag url_for(c.coupon_file) %><br/>
+    <% end %> 
+    <%= c.expiry_date %><br/>
+    <%= c.coins_needed %><br/>
+    <%= c.user_id %><br/>
+    <%= link_to "Show", user_coupon_path(@user,c) %><br/>
+<% end %>
+<%= link_to "Add Coupon", new_user_coupon_path(@user) %><br/>
