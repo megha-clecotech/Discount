@@ -1,0 +1,12 @@
+<h1>Discount Jugaadu</h1>
+
+<% if current_user.nil? == false %>
+   <div>
+      <h2>Coins : <%= current_user.coins %></h2>
+   </div>
+   <div>
+      <%= link_to :Profile ,  home_profile_path(current_user) %>
+   </div>
+<% end %>
+
+
