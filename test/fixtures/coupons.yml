@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  code: MyString
+  image_url: MyString
+  expiry_date: 2023-02-16
+  coins_needed: MyString
+  user: one
+
+two:
+  title: MyString
+  description: MyString
+  code: MyString
+  image_url: MyString
+  expiry_date: 2023-02-16
+  coins_needed: MyString
+  user: two

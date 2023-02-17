@@ -1,8 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :coupons
   after_create :assign_default_coins
- 
- 
   def assign_default_coins
     self.update(coins: 0)
   end
