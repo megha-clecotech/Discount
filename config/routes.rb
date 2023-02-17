@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :users do
    resources :coupons
   end
-  
+  resources :coupons do
+    resources :feedbacks
+  end
+  resources :categories
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "home#index"
   

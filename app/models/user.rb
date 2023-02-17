@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
-  has_many :coupons
+  has_many :coupons, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
+
   after_create :assign_default_coins
   def assign_default_coins
     self.update(coins: 0)
