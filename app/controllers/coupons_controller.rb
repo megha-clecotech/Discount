@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
   def index
+    @user = current_user
     @coupons = Coupon.all
   end
   def show 
@@ -17,7 +18,7 @@ class CouponsController < ApplicationController
     @user = current_user
     @coupon = @user.coupons.new(coupon_params)
     if @coupon.save
-      redirect_to coupon_path
+      redirect_to user_coupon_path(@user)
     end
   end
 

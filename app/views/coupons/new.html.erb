@@ -1,15 +1,15 @@
 <%= form_with model: [@user, @coupon] do |f| %>
     <%= f.label  :Title %>
-    <%= f.text_field  :title %>
+    <%= f.text_field  :title %><br />
     <%= f.label  :Description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description %><br />
     <%= f.label :Code %>
-    <%= f.text_field :code %>
+    <%= f.text_field :code %><br />
     <%= f.label  :mage %>
-    <%= f.file_field  :oupon_file %>
+    <%= f.file_field  :oupon_file %><br />
     <%= f.label :Expiry_date %>
-    <%= f.text_date :expiry_date %>
+    <%= f.date_field :expiry_date %><br />
     <%= f.label :Coins_needed %>
-    <%= f.text_field :coins_needed %>
+    <%= f.text_field :coins_needed %><br />
     <%= f.submit %>
 <% end %>

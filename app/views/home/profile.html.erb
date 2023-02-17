@@ -3,4 +3,7 @@
 Name : <%= @user.name %><br />
 Email : <%= @user.email %><br />
 Coins : <%= @user.coins %><br />
+    <div>
+      <%= link_to :CouponsIndex ,  user_coupons_path(current_user) %>
+   </div> 
 </h3>
