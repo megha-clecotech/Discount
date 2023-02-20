@@ -1,15 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  like: 1
-  dislike: 1
-  comments: MyString
+  like: false
   user: one
   coupon: one
 
 two:
-  like: 1
-  dislike: 1
-  comments: MyString
+  like: false
   user: two
   coupon: two

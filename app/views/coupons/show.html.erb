@@ -1,9 +1,15 @@
 <h1>Coupon</h1>
     <strong>ID :</strong><%= @coupon.id %><br/>
-    <%= @coupon.title %><br/>
-    <%= @coupon.description %><br/>
-    <%= @coupon.code %><br/>
+    Title : <%= @coupon.title %><br/>
+    Description : <%= @coupon.description %><br/>
+    Code :  <%= @coupon.code %><br/>
     
-    <%= @coupon.expiry_date %><br/>
-    <%= @coupon.coins_needed %><br/>
-    <%= @coupon.user_id %><br/>
+    Expiry Date : <%= @coupon.expiry_date %><br/>
+    Coins Needed : <%= @coupon.coins_needed %><br/>
+    This coupon is added by <%= @coupon.user.name %><br/>
+
+    <br />
+    <%= link_to 'Like', '', class: 'like', data: {'js-like-link' => true} %>
+    likes : <%= @coupon.feedbacks.where(like: true).count %> || 
+    <button >Dislike</button>
+    Dislikes : <%= @coupon.feedbacks.where(like: false).count %>
