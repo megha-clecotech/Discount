@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'coupons/index'
   get 'home/index'
   get 'home/profile'
+  get 'categories/index'
   devise_for :users
   resources :users do
    resources :coupons

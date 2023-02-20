@@ -1,0 +1,24 @@
+<h1>Category</h1>
+<% @categories.each do |e| %>
+    <%= e.name %><br/>
+        <% e.subcategory.each do |s|%>
+            <%= s.name %><br/>
+        <% end %><br/>
+<% end %>
+
+<table width='100%' border='1px solid'>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>MainCategoryName </strong></td>
+        <td><strong>Show </strong></td>
+    </tr>
+    <% @categories.each do |e| %>
+            <tr>
+                <td><%= e.id %></td>
+                <td><%= e.name %></td>
+                <td><%= e.maincategory.name %></td>
+                <td><%= link_to "Show",category_path(e) %></td>
+            </tr>
+    <% end %>
+</table>
