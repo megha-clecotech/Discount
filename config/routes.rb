@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "home#index"
-  
+  post '/likes' => 'likes#like', as: :like_create
+  post '/dislikes' => 'likes#dislike', as: :dislike_create
 end
