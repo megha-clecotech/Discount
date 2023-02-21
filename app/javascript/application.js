@@ -5,6 +5,9 @@ import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
  console.log($);
 
+import Rails from "@rails/ujs";
+Rails.start();
+
 $(function() {
    $('[data-js-like-link]').on("click" ,function(event){
       // if(like.clicked == true)
@@ -21,3 +24,4 @@ $(function() {
    });
 }) 
 import * as bootstrap from "bootstrap"
+
