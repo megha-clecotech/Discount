@@ -10,6 +10,19 @@
     <%= c.expiry_date %><br/>
     <%= c.coins_needed %><br/>
     <%= c.user_id %><br/>
-    <%= link_to "Show", user_coupon_path(@user,c) %><br/>
+    <%= link_to 'Show', c, class: "btn btn-primary", data: { bs_toggle: "modal", bs_target: "#showUserModal", remote: true } %><br/>
 <% end %>
 <%= link_to "Add Coupon", new_user_coupon_path(@user) %><br/>
+
+<!-- Modal -->
+<div class="modal fade" id="showUserModal" tabindex="-1" aria-labelledby="showUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showUserModalLabel">User Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div id="showUserDetails">
+      </div>
+  </div>
+</div>
