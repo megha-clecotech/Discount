@@ -20,3 +20,4 @@ $(function() {
      event.preventDefault();
    });
 }) 
+import * as bootstrap from "bootstrap"
