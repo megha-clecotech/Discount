@@ -50,7 +50,13 @@
            </div>
            <div class="Blog-Icon-container">
              <i class="fa-solid fa-rss icons"></i>
-             <p><%= link_to :Profile ,  home_profile_path(current_user) %></p>
+            <p>
+              <% if user_signed_in? %>
+                <%= link_to :Profile ,  home_profile_path(current_user) %>
+              <% else %>  
+                <%= link_to :Profile , new_user_session_path %>
+              <% end %>
+            </p>
            </div>
          </div>
        </div>
