@@ -6,11 +6,11 @@ User.create_or_find_by(name: "Megha Koshti", email: "megha.koshti@clecotech.com"
 
 User.create_or_find_by(name: "Shivani Shilpi", email: "shivani.shilpi@clecotech.com", password: "12345678")
 
-Coupon.create_or_find_by( title: "Recharge",description: "this will recharge",code: "sdf345g",expiry_date: "12-03-2023", coins_needed: 10, user_id: 1)
-Coupon.create_or_find_by( title: "Shopping",description: "this will get discount",code: "1131f345g",expiry_date: "15-04-2023", coins_needed: 0, user_id: 2)
-Coupon.create_or_find_by( title: "Travel",description: "this will device discount",code: "s845df345g",expiry_date: "13-06-2023", coins_needed: 0, user_id: 3)
-Coupon.create_or_find_by( title: "Food & Dining",description: "this will Food & Dining discount",code: "s845df345g",expiry_date: "23-06-2023", coins_needed: 0, user_id: 2)
-Coupon.create_or_find_by( title: "Other Popular",description: "this will Other Popular discount",code: "s845df345g",expiry_date: "03-08-2023", coins_needed: 0, user_id: 3)
+Coupon.create_or_find_by( title: "Recharge",description: "this will recharge",code: "sdf345g",expiry_date: "12-03-2023", coins_needed: 10, user_id: 1, app: 'Paytm')
+Coupon.create_or_find_by( title: "Shopping",description: "this will get discount",code: "1131f345g",expiry_date: "15-04-2023", coins_needed: 0, user_id: 2, app: 'PhonePe')
+Coupon.create_or_find_by( title: "Travel",description: "this will device discount",code: "s845df345g",expiry_date: "13-06-2023", coins_needed: 0, user_id: 3, app: 'AmazonPay')
+Coupon.create_or_find_by( title: "Food & Dining",description: "this will Food & Dining discount",code: "s845df345g",expiry_date: "23-06-2023", coins_needed: 0, user_id: 2, app: 'Mobikwik')
+Coupon.create_or_find_by( title: "Other Popular",description: "this will Other Popular discount",code: "s845df345g",expiry_date: "03-08-2023", coins_needed: 0, user_id: 3, app: 'GooglePay')
 
 
 Category.create_or_find_by(name:"Shopping",maincategory_id:1)

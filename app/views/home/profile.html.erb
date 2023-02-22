@@ -7,7 +7,7 @@
            <ol class="breadcrumb mb-0">
              <li class="breadcrumb-item"><%= link_to :CouponsIndex ,  user_coupons_path(current_user) %>             </li>
              <li class="breadcrumb-item"><a href="#">User</a></li>
-             <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+             <li class="breadcrumb-item active" aria-current="page"><%= link_to :AddCoupon ,  new_user_coupon_path(current_user) %></li>
            </ol>
          </nav>
        </div>

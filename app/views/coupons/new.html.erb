@@ -5,8 +5,10 @@
     <%= f.text_field :description %><br />
     <%= f.label :Code %>
     <%= f.text_field :code %><br />
-    <%= f.label  :mage %>
-    <%= f.file_field  :oupon_file %><br />
+    <%= f.label :App %>
+    <%= f.select :app, ['Other','Paytm','PhonePe','AmazonPay','Mobikwik','GooglePay','Freecharge','Airtel Money'] %><br />    
+    <%= f.label  :image %>
+    <%= f.file_field  :coupon_file %><br />
     <%= f.label :Expiry_date %>
     <%= f.date_field :expiry_date %><br />
     <%= f.label :Coins_needed %>
