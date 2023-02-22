@@ -232,3 +232,33 @@
      font-size: 0.8rem;
    }
  }
+
+.modal-body
+{
+  border: 5px dotted #bbb;
+}
+
+.couponbutton {
+  border: 1px dashed #f8f9fa;
+  background: #f8f9fa;
+  border-radius: 3px;
+  color: #000;
+  letter-spacing: 2px;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  height: 56px;
+}
+
+#copybtn
+{
+  float: left;
+  font-weight: bolder;
+  padding-top: 11px;
+}
+#copybtntxt
+{
+  cursor: pointer;
+  float: right;
+  padding-bottom: 10px;
+}

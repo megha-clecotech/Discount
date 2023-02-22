@@ -1,4 +1,4 @@
-   
+<!--    
    <div class="modal-body">
     <h1>Coupon</h1>
         <strong>ID :</strong><%= @coupon.id %><br/>
@@ -20,4 +20,56 @@
      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
+     -->
+
+<div class="modal-body">
+  <div class="row">
+    <div class="col">
+      <h3>
+        <%= @coupon.title %>
+      </h3>
+    </div>
+    <div class="col">
+      <img src="<%= 
+      if @coupon.app == 'Paytm'
+        image_path('paytm.png')
+      elsif @coupon.app == 'PhonePe'
+        image_path('phonepe.png')
+      elsif @coupon.app == 'AmazonPay' 
+        image_path('amazonpay.webp')
+      elsif @coupon.app == 'Mobikwik'
+        image_path('mobikwik.png')
+      elsif @coupon.app == 'GooglePay'
+        image_path('google.png')
+      elsif @coupon.app == 'Freecharge'
+        image_path('freecharge.png')
+      elsif @coupon.app == 'Airtel Money'
+        image_path('airtelmoney.png')
+      else
+        image_path('mobikwik.png')
+      end
+        %>" alt="avatar" class="rounded-circle img-fluid" style="width: 60px;">
+    </div>
+  </div>
+  <p>
+    Use this code at <u><a href="https://<%= @coupon.app %>.com">
+        <%= @coupon.app %>
+      </a></u>
+  </p>
+
+  <div class="couponbutton clearfix " id="couponsavebutton">
+   
+    <div class="copybtn text-center font-weight-bold" id="copybtn">SAVE10</div>
     
+    <button class="btn btn-success coupon_btn js-copy  px-4 rounded-0 font-weight-bold text-uppercase" data-clipboard-target="#copybtn" style="cursor:pointer;" id="copybtntxt">View &amp; Copy</button>
+ 
+ </div>
+
+  <br />
+  <p>Description : <%= @coupon.description %>
+  </p>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
