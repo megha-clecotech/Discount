@@ -1,0 +1,59 @@
+<div class="container">
+   <div class="row">
+     <div class="col-md-6 col-sm-12 center-align">
+       <div><%= link_to :Home , root_path %></div>
+       <div style="margin-left: 1rem">About Us</div>
+       <div style="margin-left: 1rem">Contact</div>
+     </div>
+     <div class="col-md-6 col-sm-12 end-align">
+       <span >$</span>
+       <span class="ms-1">|</span>
+       <span class="ms-1">
+         <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+         <% else %>  
+            <%= link_to "Login", new_user_session_path %>
+         <% end %>
+       </span>
+       <span class="ms-1">|</span>
+       <span class="ms-1">
+         <% if user_signed_in? %>
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+         <% else %>  
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+         <% end %>
+       </span>
+     </div>
+   </div>
+ </div>
+ <div class="Nav">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-5 col-sm-4 col-6 center-align col-One">
+         <p class="Heading">Discount<span>Jugaadu</span></p>
+       </div>
+       <div class="col-md-4 col-12 center-align col-two">
+         <div class="search">
+           <span class="fa fa-search"></span>
+           <input placeholder="Search term" />
+         </div>
+       </div>
+       <div class="col-md-3 col-sm-8 col-6 center-align col-three">
+         <div class="Category-layout">
+           <div class="Blog-Icon-container">
+             <i class="fa fa-shopping-bag icons" aria-hidden="true"></i>
+             <p>Stores</p>
+           </div>
+           <div class="Blog-Icon-container">
+             <i class="fa fa-tag icons" aria-hidden="true"></i>
+             <p>Categories</p>
+           </div>
+           <div class="Blog-Icon-container">
+             <i class="fa-solid fa-rss icons"></i>
+             <p><%= link_to :Profile ,  home_profile_path(current_user) %></p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

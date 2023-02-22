@@ -1,0 +1,45 @@
+<div class="col-md-9 col-sm-12 space gy-4">
+   <% @coupons.each do |c| %>
+      <div class="list-container">
+         <div class="row">
+            <div class="col-md-8 col-sm-12 center-align">
+               <p class="offer-logo">MANGO</p>
+               <p class="offer-text"><%= c.title %></p>
+            </div>
+            <div class="col-md-4 col-sm-12 center">
+               <img src="<%= image_path('noun-correct-171158 (1).svg') %>" alt="verified_Image"
+                  class="verified_image" />
+               <span class="verified-text">Verified</span>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-8 col-sm-12">
+               <%= c.description %>
+            </div>
+            <div class="col-md-4 col-sm-12">
+               <div class="code-container">
+                  <i class="get-code"><%= link_to 'Get Code', c, data: { bs_toggle: "modal", bs_target: "#showUserModal", remote: true } %></i>
+                  <font style="opacity: 0.3;" ><%= c.code.last(2) %></font><i class="fa fa-search search-icon" aria-hidden="true"></i>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      <div class="dateOFExpire">Expired in 11 days</div>
+   <% end %>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="showUserModal" tabindex="-1" aria-labelledby="showUserModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="showUserModalLabel">User Details</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+         <div id="showUserDetails">
+       </div>
+   </div>
+ </div>

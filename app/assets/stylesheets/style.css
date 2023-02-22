@@ -1,0 +1,234 @@
+.Nav {
+   padding: 0.8rem;
+   border: 1px solid #f2f2f2;
+ }
+ 
+ .center-align {
+   display: flex;
+   align-items: center;
+ }
+ .center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .Category-layout {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .Blog-Icon-container {
+   margin-left: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+ }
+ .Blog-Icon-container > p {
+   font-size: 1rem;
+ }
+ .icons {
+   font-size: 1.8rem;
+ }
+ 
+ .banner_Image {
+   margin-top: 1rem;
+   height: 50vh;
+   background-image: url("https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG11ZyUyMGxhbmRzY2FwZSUyMHBsYW5lJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   border-radius: 0.75rem;
+ }
+ .banner-heading {
+   font-size: 1.8rem;
+   color: #fff;
+   font-weight: bold;
+ }
+ .banner-text {
+   font-size: 1.2rem;
+   color: #fff;
+ }
+ 
+ .banner-btn-one,
+ .banner-btn-two {
+   height: 3rem;
+   width: 12rem;
+   border: 1px solid black;
+   border-radius: 0.3125rem;
+   color: #fff;
+ }
+ .banner-btn-one {
+   background-color: orange;
+ }
+ .banner-btn-two {
+   background-color: gray;
+ }
+ 
+ .space {
+   padding-left: 2rem;
+ }
+ .list-container {
+   border: 1px solid lightgray;
+   border-top-left-radius: 0.3125rem;
+   border-top-right-radius: 0.3125rem;
+   padding: 1rem;
+ }
+ .verified_image {
+   width: 1rem;
+   height: 1rem;
+ }
+ .verified-text {
+   color: green;
+   margin-left: 0.6rem;
+ }
+ .offer-logo {
+   border: 1px solid lightgray;
+   padding: 0.5rem 0rem 0.5rem 0rem;
+   border-radius: 0.2rem;
+   font-weight: 600;
+ }
+ .offer-text {
+   font-weight: bold;
+   margin-left: 1rem;
+   font-size: 1.2rem;
+ }
+ .dateOFExpire {
+   text-align: end;
+   padding: 0.5rem;
+   border: 1px solid lightgray;
+   background-color: #f2f2f2;
+   color: gray;
+ }
+ .code-container {
+   display: flex;
+   align-items: center;
+   border: 1px solid lightgray;
+   border-radius: 0.3125rem;
+ }
+ .get-code {
+   padding: 0.5rem;
+   width: 60%;
+   background-color: orange;
+   color: #fff;
+   border-top-left-radius: 0.3125rem;
+   border-bottom-left-radius: 0.3125rem;
+   clip-path: polygon(0 0, 100% 0%, 90% 100%, 0 100%);
+ }
+ .search-icon {
+   padding: 0.5rem;
+   width: 40%;
+   display: flex !important;
+   align-items: center;
+   justify-content: end;
+ }
+ 
+ .search {
+   position: relative;
+   color: #aaa;
+   font-size: 16px;
+ }
+ 
+ .search {
+   display: inline-block;
+ }
+ 
+ .search input {
+   width: 250px;
+   height: 32px;
+   background: #fcfcfc;
+   border: 0px solid #aaa !important;
+   border-radius: 1rem;
+   box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+ }
+ 
+ .search input {
+   text-indent: 32px;
+ }
+ .search .fa-search {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+ }
+ 
+ .search .fa-search {
+   left: auto;
+   right: 10px;
+ }
+ .col-One {
+   order: 1;
+ }
+ .col-two {
+   order: 2;
+ }
+ .col-three {
+   order: 3;
+ }
+ .Heading {
+   font-size: 1.8rem;
+   font-weight: bold;
+ }
+ .Heading > span {
+   color: orange;
+ }
+ 
+ .end-align{
+     display: flex;
+     align-items: center;
+     justify-content: end;
+     padding: 0.5rem;
+ }
+ 
+ button:focus:not(:focus-visible) {
+   outline: 0;
+ }
+ .accordion-button:focus {
+   z-index: 3;
+   border-color: lightgray;
+   outline: 0;
+   box-shadow: 0 0 0 0.25rem rgba(255, 187, 0, 0.938);
+ }
+ .accordion-button:not(.collapsed) {
+   color: orange;
+   background-color: #e7f1ff;
+   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+ }
+ @media screen and (max-width: 37.5rem) {
+   .space {
+     padding-left: 0rem;
+   }
+   .Blog-Icon-container {
+     margin-left: 2rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+   }
+   .col-One {
+     order: 1;
+   }
+   .col-two {
+     order: 3;
+   }
+   .col-three {
+     order: 2;
+   }
+   .Heading {
+     font-size: 1.4rem;
+   }
+   .Blog-Icon-container {
+     margin-left: 0.5rem;
+   }
+ 
+   .icons {
+     font-size: 0.8rem;
+   }
+   .Blog-Icon-container > p {
+     font-size: 0.8rem;
+   }
+ }
