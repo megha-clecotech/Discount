@@ -262,3 +262,8 @@
   float: right;
   padding-bottom: 10px;
 }
+#greypart
+{
+  float: left;
+  font-weight: bolder;
+}

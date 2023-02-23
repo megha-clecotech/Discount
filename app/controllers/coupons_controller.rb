@@ -21,7 +21,11 @@ class CouponsController < ApplicationController
       redirect_to home_profile_path(current_user)
     end
   end
-
+  def update_user_coins
+    newcoin = params[:newcoin]
+    current_user.coins = newcoin
+    current_user.save
+  end
   private
     def coupon_params
       params.require(:coupon).permit(:title, :description, :code, :image_url, :expiry_date, :coins_needed, :user_id)

@@ -34,7 +34,7 @@
       if @coupon.app == 'Paytm'
         image_path('paytm.png')
       elsif @coupon.app == 'PhonePe'
-        image_path('phonepe.png')
+        image_path('phonepe.jpg')
       elsif @coupon.app == 'AmazonPay' 
         image_path('amazonpay.webp')
       elsif @coupon.app == 'Mobikwik'
@@ -58,13 +58,21 @@
   </p>
 
   <div class="couponbutton clearfix " id="couponsavebutton">
-   
-    <div class="copybtn text-center font-weight-bold" id="copybtn">SAVE10</div>
-    
-    <button class="btn btn-success coupon_btn js-copy  px-4 rounded-0 font-weight-bold text-uppercase" data-clipboard-target="#copybtn" style="cursor:pointer;" id="copybtntxt">View &amp; Copy</button>
- 
- </div>
+    <div class="copybtn text-center font-weight-bold" id="copybtn" style="display:none;position: absolute;">
+      <%= @coupon.code %>
+    </div>
+    <div id="greypart"><img src="<%= image_path('blur.jpeg') %>"
+        style="width: 250px;height: 45px;position: relative;" /></div>
 
+    <button onclick="buttonfunc()"
+      class="btn btn-success coupon_btn js-copy  px-4 rounded-0 font-weight-bold text-uppercase"
+      data-clipboard-target="#copybtn" style="cursor:pointer;" id="copybtntxt">View &amp; Copy</button>
+
+  </div>
+  <div>
+    <img src="<%= image_path('coin.png') %>" style="width: 29px;height: 27px;" />
+    : <%= @coupon.coins_needed %>
+  </div>
   <br />
   <p>Description : <%= @coupon.description %>
   </p>
@@ -73,3 +81,35 @@
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 </div>
+
+<script type="text/javascript">
+  function buttonfunc() {
+    var j = '<%= @coupon.coins_needed %>'
+    if (j == 0) {
+      document.getElementById('copybtn').style.display = 'block';
+      document.getElementById('greypart').style.display = 'none';
+      navigator.clipboard.writeText('<%= @coupon.code %>')
+    } else {
+      var txt;
+      if (confirm("Use Coins to Open Coupon Code ?")) {
+        if('<%= current_user.coins %>' >= '<%= @coupon.coins_needed%>'){
+          var newcoin = '<%= current_user.coins%>'-'<%= @coupon.coins_needed %>'
+          $.ajax({
+            type: "get",
+            url: "/users/" + '<%= current_user.id %>'+ "/coupons/update_user_coins",
+            data: {
+              newcoin: newcoin,
+            }
+          });
+          document.getElementById('copybtn').style.display = 'block';
+          document.getElementById('greypart').style.display = 'none';
+          navigator.clipboard.writeText('<%= @coupon.code %>')
+      }else{
+        alert("You don't have enough coins")
+      }
+    }
+  }
+
+}
+
+</script>

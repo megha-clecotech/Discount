@@ -13,5 +13,9 @@
     <%= f.date_field :expiry_date %><br />
     <%= f.label :Coins_needed %>
     <%= f.text_field :coins_needed %><br />
+    <%= f.fields_for :categories do |c| %>
+        <%= c.label :Category %>
+        <%= c.collection_select :category_id, Category.order(:name),:id,:name , include_blank: true %><br />
+    <% end %>
     <%= f.submit %>
 <% end %>
