@@ -71,6 +71,5 @@ group :test do
   gem "webdrivers"
 end
 
-
 gem 'devise'
 gem "cssbundling-rails", "~> 1.1"

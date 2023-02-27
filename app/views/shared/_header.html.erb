@@ -42,7 +42,7 @@
          <div class="Category-layout">
            <div class="Blog-Icon-container">
              <i class="fa fa-shopping-bag icons" aria-hidden="true"></i>
-             <p>Stores</p>
+             <p><%= link_to :Coupon_Donation , new_coupon_path %></p>
            </div>
            <div class="Blog-Icon-container">
              <i class="fa fa-tag icons" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
              <i class="fa-solid fa-rss icons"></i>
             <p>
               <% if user_signed_in? %>
-                <%= link_to :Profile ,  home_profile_path(current_user) %>
+                <%= link_to :Profile ,  home_profile_path %>
               <% else %>  
                 <%= link_to :Profile , new_user_session_path %>
               <% end %>

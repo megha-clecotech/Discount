@@ -17,8 +17,9 @@ class CouponsController < ApplicationController
   def create
     @user = current_user
     @coupon = @user.coupons.new(coupon_params)
+    debugger
     if @coupon.save
-      redirect_to home_profile_path(current_user)
+      redirect_to home_profile_path
     end
   end
 
@@ -29,8 +30,7 @@ class CouponsController < ApplicationController
   end
 
   private
-
-  def coupon_params
-    params.require(:coupon).permit(:title, :description, :code, :image_url, :expiry_date, :coins_needed, :user_id)
-  end
+    def coupon_params
+      params.require(:coupon).permit(:title, :description, :code, :app,:coupon_file, :expiry_date, :coins_needed, :category_id, :user_id)
+    end
 end
