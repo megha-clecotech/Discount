@@ -45,5 +45,6 @@ Coupon.create_or_find_by( title: "Shopping",description: "this will get discount
 Coupon.create_or_find_by( title: "Travel",description: "this will device discount",code: "s845df345g",expiry_date: "13-06-2023", coins_needed: 0, user_id: 3, app: 'AmazonPay',category_id: 2)
 Coupon.create_or_find_by( title: "Food & Dining",description: "this will Food & Dining discount",code: "s845df345g",expiry_date: "23-06-2023", coins_needed: 0, user_id: 2, app: 'Mobikwik',category_id: 3)
 Coupon.create_or_find_by( title: "Other Popular",description: "this will Other Popular discount",code: "s845df345g",expiry_date: "03-08-2023", coins_needed: 0, user_id: 3, app: 'GooglePay',category_id: 5)
+Coupon.create_or_find_by( title: "Pizza",description: "this will Other Popular discount",code: "s845df345gasd",expiry_date: "03-08-2023", coins_needed: 0, user_id: 3, app: 'GooglePay',category_id: 6)
 User.find(2).update(coins: 500)
 puts "Created seed data"
