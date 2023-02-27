@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   # get 'coupons/index'
-  get 'home/index'
+  get 'home/index',to: 'home#index'
   get 'home/profile'
   get 'categories/index'
   devise_for :users
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#index"
-  post '/likes' => 'likes#like', as: :like_create
-  post '/dislikes' => 'likes#dislike', as: :dislike_create
+  root 'home#index'
+  post '/likes' => 'feedbacks#like'
+  post '/dislikes' => 'feedbacks#dislike'
 end

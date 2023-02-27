@@ -1,1 +1,124 @@
 $("#showUserDetails").html("<%= j render("show", user: @user) %>");
+
+  function buttonfunc() {
+    var j = '<%= @coupon.coins_needed %>'
+    if (j == 0) {
+      document.getElementById('copybtn').style.display = 'block';
+      document.getElementById('greypart').style.display = 'none';
+      document.getElementById('scimage').style.display = 'block';
+      navigator.clipboard.writeText('<%= @coupon.code %>')
+    } else {
+      var txt;
+      if (confirm("Use Coins to Open Coupon Code ?")) {
+          <% if current_user != nil %>
+              if ('<%= current_user.coins %>' >= '<%= @coupon.coins_needed%>') {
+                var newcoin = '<%= current_user.coins%>' - '<%= @coupon.coins_needed %>'
+                $.ajax({
+                  type: "get",
+                  url: "/users/" + '<%= current_user.id %>' + "/coupons/update_user_coins",
+                  data: {
+                    newcoin: newcoin,
+                  }
+                });
+                document.getElementById('copybtn').style.display = 'block';
+                document.getElementById('greypart').style.display = 'none';
+                document.getElementById('scimage').style.display = 'block';
+                navigator.clipboard.writeText('<%= @coupon.code %>')
+              } else {
+                alert("You don't have enough coins")
+              }
+          <% else %>
+          {
+              let text = "You need to login.. \nDo you want to login now ?? ";
+              if (confirm(text) == true) {
+                window.location.replace("/users/sign_in");
+              } else {
+                alert("You canceled!");
+              }
+          }    
+          <% end %>
+      }
+    }
+
+  }
+
+  // The data/time we want to countdown to
+  var countDownDate = new Date('<%= @coupon.expiry_date %>').getTime();
+
+  // Run myfunc every second
+  var myfunc = setInterval(function () {
+
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+
+    // Calculating the days, hours, minutes and seconds left
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+    // Result is output to the specific element
+    document.getElementById("days").innerHTML = days + "d "
+    document.getElementById("hours").innerHTML = hours + ": "
+    document.getElementById("mins").innerHTML = minutes + ": "
+    document.getElementById("secs").innerHTML = seconds
+
+    // Display the message when countdown is over
+    if (timeleft < 0) {
+      clearInterval(myfunc);
+      document.getElementById("days").innerHTML = ""
+      document.getElementById("hours").innerHTML = ""
+      document.getElementById("mins").innerHTML = ""
+      document.getElementById("secs").innerHTML = ""
+    }
+  }, 1000);
+
+  // like and dislike functions 
+  var btn1 = document.getElementById('green');
+  var btn2 = document.getElementById('red');
+  var input1 = $(".like").find('.qty1');
+  var input2 = $(".dislike").find('.qty2');
+
+  function likef(coupon) {
+    $.ajax({
+      type: "post",
+      url: "/likes",
+      data: {
+        id: coupon,
+      },
+    });
+    if (btn2.classList.contains('red')) {
+      btn2.classList.remove('red');
+      input2.val(parseInt("<%= @coupon.feedbacks.where(like: false).count %>"));
+      btn1.classList.toggle('green');
+      input1.val(parseInt("<%= @coupon.feedbacks.where(like: true).count %>") + 1);
+    }else if(btn1.classList.contains('green')){
+      btn1.classList.remove('green');
+      input1.val(parseInt("<%= @coupon.feedbacks.where(like: true).count %>"));
+    }else{
+    btn1.classList.toggle('green');
+    input1.val(parseInt("<%= @coupon.feedbacks.where(like: true).count %>") + 1);
+    }
+  }
+
+  function dislikef(coupon) {
+    $.ajax({
+      type: "post",
+      url: "/dislikes",
+      data: {
+        id: coupon,
+      },
+    });
+    if (btn1.classList.contains('green')) {
+      btn1.classList.remove('green');
+      input1.val(parseInt("<%= @coupon.feedbacks.where(like: true).count %>"));
+      btn2.classList.toggle('red');
+      input2.val(parseInt("<%= @coupon.feedbacks.where(like: false).count %>") + 1);
+    }else if(btn2.classList.contains('red')){
+      btn2.classList.remove('red');
+      input2.val(parseInt("<%= @coupon.feedbacks.where(like: false).count %>"));
+    }else{
+    btn2.classList.toggle('red');
+    input2.val(parseInt("<%= @coupon.feedbacks.where(like: false).count %>") + 1);
+    }
+  };

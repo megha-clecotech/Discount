@@ -69,47 +69,47 @@
       data-clipboard-target="#copybtn" style="cursor:pointer;" id="copybtntxt">View &amp; Copy</button>
 
   </div>
-  <div>
-    <img src="<%= image_path('coin.png') %>" style="width: 29px;height: 27px;" />
-    : <%= @coupon.coins_needed %>
+  <div class="row">
+    <div class="col">
+      <img src="<%= image_path('coin.png') %>" style="width: 29px;height: 27px;" />
+      : <%= @coupon.coins_needed %>
+    </div>
+    <div class="col">Expires In :
+      <span style="color:red;" id="days"></span>
+      <span style="color:red;" id="hours"></span>
+      <span style="color:red;" id="mins"></span>
+      <span style="color:red;" id="secs"></span>
+    </div>
   </div>
   <br />
+  <% if @coupon.coupon_file.attached? %>
+    <div id="scimage" style="display:none;" >
+    <img src="<%= image_path url_for(@coupon.coupon_file)%>" class="rounded mx-auto d-block" >
+    </div>
+  <%  end %>
   <p>Description : <%= @coupon.description %>
   </p>
+  <div class="row">
+    <div style="color:blue;" class="col">
+       
+    </div>
+    <div class="col">
+      <a class="like">
+        <button class="btn" onclick="likef('<%= @coupon.id %>')"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"
+            id="green"></i></button>
+        <input class="qty1" name="qty1" readonly="readonly" type="text"
+          value="<%= @coupon.feedbacks.where(like: true).count %>" />
+      </a>
+      <a class="dislike">
+        <button class="btn" onclick="dislikef('<%= @coupon.id %>')"><i class="fa fa-thumbs-down fa-lg"
+            aria-hidden="true" id="red"></i></button>
+        <input class="qty2" name="qty2" readonly="readonly" type="text"
+          value="<%= @coupon.feedbacks.where(like: false).count %>" />
+      </a>
+    </div>
+  </div>
 </div>
 
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 </div>
-
-<script type="text/javascript">
-  function buttonfunc() {
-    var j = '<%= @coupon.coins_needed %>'
-    if (j == 0) {
-      document.getElementById('copybtn').style.display = 'block';
-      document.getElementById('greypart').style.display = 'none';
-      navigator.clipboard.writeText('<%= @coupon.code %>')
-    } else {
-      var txt;
-      if (confirm("Use Coins to Open Coupon Code ?")) {
-        if('<%= current_user.coins %>' >= '<%= @coupon.coins_needed%>'){
-          var newcoin = '<%= current_user.coins%>'-'<%= @coupon.coins_needed %>'
-          $.ajax({
-            type: "get",
-            url: "/users/" + '<%= current_user.id %>'+ "/coupons/update_user_coins",
-            data: {
-              newcoin: newcoin,
-            }
-          });
-          document.getElementById('copybtn').style.display = 'block';
-          document.getElementById('greypart').style.display = 'none';
-          navigator.clipboard.writeText('<%= @coupon.code %>')
-      }else{
-        alert("You don't have enough coins")
-      }
-    }
-  }
-
-}
-
-</script>
