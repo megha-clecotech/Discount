@@ -3,7 +3,7 @@
      <div class="col-md-6 col-sm-12 center-align">
        <div><%= link_to :Home , root_path %></div>
        <div style="margin-left: 1rem">About Us</div>
-       <div style="margin-left: 1rem">Contact</div>
+       <div style="margin-left: 1rem"><%= link_to :Contact ,  home_contact_path, id: "removelink"  %></div>
      </div>
      <div class="col-md-6 col-sm-12 end-align">
        <span >$</span>
@@ -42,19 +42,26 @@
          <div class="Category-layout">
            <div class="Blog-Icon-container">
              <i class="fa fa-shopping-bag icons" aria-hidden="true"></i>
-             <p><%= link_to :Coupon_Donation , new_coupon_path %></p>
+             <p><%= link_to 'Coupon Donation' , new_coupon_path %></p>
            </div>
            <div class="Blog-Icon-container">
              <i class="fa fa-tag icons" aria-hidden="true"></i>
-             <p>Categories</p>
+             <p> <div class="dropdown">
+  <p class="dropbtn">Categories</p>
+  <div class="dropdown-content">
+    <% @arr.each do |c| %>
+      <%= link_to c.name, category_path(c) %>
+    <% end %>
+  </div>
+</div></p>
            </div>
            <div class="Blog-Icon-container">
              <i class="fa-solid fa-rss icons"></i>
             <p>
               <% if user_signed_in? %>
-                <%= link_to :Profile ,  home_profile_path %>
+                <%= link_to :Profile ,  home_profile_path, id: "removelink"  %>
               <% else %>  
-                <%= link_to :Profile , new_user_session_path %>
+                <%= link_to :Profile , new_user_session_path, id: "removelink" %>
               <% end %>
             </p>
            </div>

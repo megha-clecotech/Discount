@@ -59,75 +59,52 @@
              </div>
            </div>
          </div>
+    <h2>Your Coupons : </h2>     
+   <% current_user.coupons.each do |c| %>
+      <div class="list-container"  style="background-color: #ffffff;">
          <div class="row">
-           <div class="col-md-6">
-             <div class="card mb-4 mb-md-0">
-               <div class="card-body">
-                 <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                 </p>
-                 <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                 <div class="progress rounded mb-2" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <div class="col-md-6">
-             <div class="card mb-4 mb-md-0">
-               <div class="card-body">
-                 <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                 </p>
-                 <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                 <div class="progress rounded" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-                 <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                 <div class="progress rounded mb-2" style="height: 5px;">
-                   <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                     aria-valuemin="0" aria-valuemax="100"></div>
-                 </div>
-               </div>
-             </div>
-           </div> 
+            <div class="col-md-8 col-sm-12 center-align">
+               <p class="offer-logo">MANGO</p>
+               <p class="offer-text"><%= c.title %></p>
+            </div>
+            <div class="col-md-4 col-sm-12 center">
+               <img src="<%= image_path('noun-correct-171158 (1).svg') %>" alt="verified_Image"
+                  class="verified_image" />
+               <span class="verified-text">Verified</span>
+            </div>
          </div>
-       </div>
+         <div class="row">
+            <div class="col-md-8 col-sm-12">
+               <%= c.description %>
+            </div>
+            <div class="col-md-4 col-sm-12">
+               <div class="code-container">
+                  <i class="get-code"><%= link_to 'Get Code', c, data: { bs_toggle: "modal", bs_target: "#showUserModal", remote: true }, id: "removelink" %></i>
+                  <font style="opacity: 0.3;" ><%= c.code.last(2) %></font><i class="fa fa-search search-icon" aria-hidden="true"></i>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      <div class="dateOFExpire">Expired in <%= (c.expiry_date.to_date - Date.current).to_i %> days</div>
+   <% end %>
+</div>
+
+
+      
      </div>
    </div>
  </section>
+
+ <!-- Modal -->
+<div class="modal fade" id="showUserModal" tabindex="-1" aria-labelledby="showUserModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="showUserModalLabel">Coupon</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+         <div id="showUserDetails">
+       </div>
+   </div>
+ </div>

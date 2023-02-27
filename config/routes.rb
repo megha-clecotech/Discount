@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  
+
   # get 'coupons/index'
-  get 'home/index',to: 'home#index'
-  get 'home/profile'
-  get 'categories/index'
+  get "home/index", to: "home#index"
+  get "home/profile"
+  get "home/contact"
+  get "categories/index"
   devise_for :users
   resources :users do
-    get 'coupons/update_user_coins'
-   resources :coupons
+    get "coupons/update_user_coins"
+    resources :coupons
   end
   resources :coupons do
     resources :feedbacks
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root 'home#index'
-  post '/likes' => 'feedbacks#like'
-  post '/dislikes' => 'feedbacks#dislike'
+  root "home#index"
+  post "/likes" => "feedbacks#like"
+  post "/dislikes" => "feedbacks#dislike"
 end
