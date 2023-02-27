@@ -7,7 +7,6 @@ class FeedbacksController < ApplicationController
         Feedback.create_dislike(@coupon, current_user)
     end
     def set_coupon
-        debugger
-        @coupon = Coupon.find_by(params[:id])
+        @coupon = Coupon.find(params[:id])
     end 
 end

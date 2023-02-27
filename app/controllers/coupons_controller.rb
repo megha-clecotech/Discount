@@ -3,18 +3,18 @@ class CouponsController < ApplicationController
     @user = current_user
     @coupons = Coupon.all
   end
-  def show 
-      @user = current_user
-     @coupon = Coupon.find(params[:id])
+
+  def show
+    @user = current_user
+    @coupon = Coupon.find(params[:id])
   end
 
-  def new 
-    
+  def new
     @user = current_user
     @coupon = @user.coupons.new
   end
-  def create 
-    
+
+  def create
     @user = current_user
     @coupon = @user.coupons.new(coupon_params)
     debugger
@@ -28,6 +28,7 @@ class CouponsController < ApplicationController
     current_user.coins = newcoin
     current_user.save
   end
+
   private
     def coupon_params
       params.require(:coupon).permit(:title, :description, :code, :app,:coupon_file, :expiry_date, :coins_needed, :category_id, :user_id)

@@ -267,3 +267,23 @@
   float: left;
   font-weight: bolder;
 }
+
+.qty1,
+.qty2 {
+    border: none;
+    width:20px;
+    background: transparent;
+}
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+
+#getcode1{
+text-decoration: none;
+font-family: sans-serif;
+}
