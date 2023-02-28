@@ -358,13 +358,13 @@ button:focus:not(:focus-visible) {
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+/* .dropdown:hover .dropbtn {
   background-color: #3e8e41;
-}
+} */
 
 /* Contact page css */
 .my-form {
-  color: #305896;
+  color: black;
 }
 
 .my-form .btn-default {
@@ -391,10 +391,6 @@ button:focus:not(:focus-visible) {
 #removelink:hover {
   color: blue;
 }
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-
-
 
     /* footer css  */
 

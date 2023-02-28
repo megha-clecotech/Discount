@@ -62,7 +62,7 @@
             <i class="fa fa-tag icons" aria-hidden="true"></i>
             <p>
             <div class="dropdown">
-              <p class="dropbtn">Categories</p>
+              <p class="dropbtn" id="removelink">Categories</p>
               <div class="dropdown-content">
                 <% @arr.each do |c| %>
                   <%= link_to c.name, category_path(c) %>
