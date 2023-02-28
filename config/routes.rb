@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   # get 'coupons/index'
   get "home/index", to: "home#index"
   get "home/profile"
-  get "home/contact"
   get "home/about"
   get "categories/index"
-  resources :contacts, only: [:new]
+  resources :contacts, only: [:new, :create]
   devise_for :users
   resources :users do
     get "coupons/update_user_coins"
