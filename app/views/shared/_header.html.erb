@@ -1,72 +1,88 @@
 <div class="container">
-   <div class="row">
-     <div class="col-md-6 col-sm-12 center-align">
-       <div><%= link_to :Home , root_path %></div>
-       <div style="margin-left: 1rem">About Us</div>
-       <div style="margin-left: 1rem"><%= link_to :Contact ,  home_contact_path, id: "removelink"  %></div>
-     </div>
-     <div class="col-md-6 col-sm-12 end-align">
-       <span >$</span>
-       <span class="ms-1">|</span>
-       <span class="ms-1">
-         <% if user_signed_in? %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-         <% else %>  
-            <%= link_to "Login", new_user_session_path %>
-         <% end %>
-       </span>
-       <span class="ms-1">|</span>
-       <span class="ms-1">
-         <% if user_signed_in? %>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-         <% else %>  
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-         <% end %>
-       </span>
-     </div>
-   </div>
- </div>
- <div class="Nav">
-   <div class="container">
-     <div class="row">
-       <div class="col-md-5 col-sm-4 col-6 center-align col-One">
-         <p class="Heading">Discount<span>Jugaadu</span></p>
-       </div>
-       <div class="col-md-4 col-12 center-align col-two">
-         <div class="search">
-           <span class="fa fa-search"></span>
-           <input placeholder="Search term" />
-         </div>
-       </div>
-       <div class="col-md-3 col-sm-8 col-6 center-align col-three">
-         <div class="Category-layout">
-           <div class="Blog-Icon-container">
-             <i class="fa fa-shopping-bag icons" aria-hidden="true"></i>
-             <p><%= link_to 'Coupon Donation' , new_coupon_path %></p>
-           </div>
-           <div class="Blog-Icon-container">
-             <i class="fa fa-tag icons" aria-hidden="true"></i>
-             <p> <div class="dropdown">
-  <p class="dropbtn">Categories</p>
-  <div class="dropdown-content">
-    <% @arr.each do |c| %>
-      <%= link_to c.name, category_path(c) %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 center-align">
+      <div>
+        <%= link_to :Home , root_path , id: "removelink" %>
+      </div>
+      <div style="margin-left: 1rem">
+        <%= link_to 'About Us' , home_about_path, id: "removelink" %>
+      </div>
+      <div style="margin-left: 1rem">
+        <%= link_to :Contact , home_contact_path, id: "removelink" %>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 end-align">
+      <span>$</span>
+      <span class="ms-1">|</span>
+      <span class="ms-1">
+        <% if user_signed_in? %>
+          <%= link_to "Logout" , destroy_user_session_path, method: :delete, :class=> 'navbar-link' , id: "removelink"
+            %>
+            <% else %>
+              <%= link_to "Login" , new_user_session_path , id: "removelink" %>
+                <% end %>
+      </span>
+      <span class="ms-1">|</span>
+      <span class="ms-1">
+        <% if user_signed_in? %>
+          <%= link_to 'Edit profile' , edit_user_registration_path, :class=> 'navbar-link' , id: "removelink" %>
+            <% else %>
+              <%= link_to "Sign up" , new_user_registration_path, :class=> 'navbar-link' , id: "removelink" %>
+                <% end %>
+      </span>
+    </div>
   </div>
-</div></p>
-           </div>
-           <div class="Blog-Icon-container">
-             <i class="fa-solid fa-rss icons"></i>
+</div>
+<div class="Nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-4 col-6 center-align col-One">
+        <p class="Heading">Discount<span>Jugaadu</span></p>
+      </div>
+      <div class="col-md-4 col-12 center-align col-two">
+        <div class="search">
+          <!-- <span class="fa fa-search"></span>
+          <input placeholder="Search term" /> -->
+          <%= form_tag(search_path, :method=> "get") do %>
+            <%= search_field_tag :search, params[:search],placeholder: "Search term" %>
+                <%= button_tag "     " ,id: "search-button", :class=> "btn btn-primary",:name => nil ,style:"height: 23px;width: 33px;background-color: white;border: none;" %>
+                <i class="fas fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-8 col-6 center-align col-three">
+        <div class="Category-layout">
+          <div class="Blog-Icon-container">
+            <i class="fa fa-shopping-bag icons" aria-hidden="true"></i>
+            <p>
+              <%= link_to 'Coupon Donation' , new_coupon_path , id: "removelink" %>
+            </p>
+          </div>
+          <div class="Blog-Icon-container">
+            <i class="fa fa-tag icons" aria-hidden="true"></i>
+            <p>
+            <div class="dropdown">
+              <p class="dropbtn">Categories</p>
+              <div class="dropdown-content">
+                <% @arr.each do |c| %>
+                  <%= link_to c.name, category_path(c) %>
+                    <% end %>
+              </div>
+            </div>
+            </p>
+          </div>
+          <div class="Blog-Icon-container">
+            <i class="fa-solid fa-rss icons"></i>
             <p>
               <% if user_signed_in? %>
-                <%= link_to :Profile ,  home_profile_path, id: "removelink"  %>
-              <% else %>  
-                <%= link_to :Profile , new_user_session_path, id: "removelink" %>
-              <% end %>
+                <%= link_to :Profile , home_profile_path, id: "removelink" %>
+                  <% else %>
+                    <%= link_to :Profile , new_user_session_path, id: "removelink" %>
+                      <% end %>
             </p>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

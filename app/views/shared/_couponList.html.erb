@@ -3,7 +3,27 @@
       <div class="list-container">
          <div class="row">
             <div class="col-md-8 col-sm-12 center-align">
-               <p class="offer-logo">MANGO</p>
+               <p class="offer-logo">
+                  <%= c.app %>
+                  <img src="<%= 
+                  if c.app == 'Paytm'
+                    image_path('paytm.png')
+                  elsif c.app == 'PhonePe'
+                    image_path('phonepe.jpg')
+                  elsif c.app == 'AmazonPay' 
+                    image_path('amazonpay.webp')
+                  elsif c.app == 'Mobikwik'
+                    image_path('mobikwik.png')
+                  elsif c.app == 'GooglePay'
+                    image_path('google.png')
+                  elsif c.app == 'Freecharge'
+                    image_path('freecharge.png')
+                  elsif c.app == 'Airtel Money'
+                    image_path('airtelmoney.png')
+                  else
+                    image_path('mobikwik.png')
+                  end
+                    %>" alt="avatar" class="rounded-circle img-fluid" style="width: 50px;height: 32px;"></p>
                <p class="offer-text"><%= c.title %></p>
             </div>
             <div class="col-md-4 col-sm-12 center">

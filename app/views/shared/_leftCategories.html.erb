@@ -26,7 +26,7 @@
               >
                 <div class="accordion-body" >
                     <% if s.name!= main_category.name %>
-                        <strong><%= link_to s.name , category_path(s.id) %></strong>
+                        <strong><%= link_to s.name , category_path(s.id) , id: "removelink" %></strong>
                     <% end %>
                 </div>
               </div>

@@ -6,6 +6,9 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def about
+  end
+
   def profile
     @user = current_user
   end
