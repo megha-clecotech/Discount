@@ -20,7 +20,7 @@
              <img src="<%= image_path('usericon.png') %>" alt="avatar"
                class="rounded-circle img-fluid" style="width: 150px;">
              <h5 class="my-3"><%= current_user.name %></h5>
-             <p class="text-muted mb-4">Coins :<%= current_user.coins %></p>
+             <p class="text-muted mb-4">Coins :<%= current_user.coins %> <img src="<%= image_path('coin.png') %>" style="width: 29px;height: 27px;" /></p>
              <div class="d-flex justify-content-center mb-2">
                <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'  %>
             </div>
@@ -54,7 +54,7 @@
                  <p class="mb-0">Coins</p>
                </div>
                <div class="col-sm-9">
-                 <p class="text-muted mb-0"><%= current_user.coins %></p>
+                 <p class="text-muted mb-0"><%= current_user.coins %> <img src="<%= image_path('coin.png') %>" style="width: 29px;height: 27px;" /></p>
                </div>
              </div>
            </div>

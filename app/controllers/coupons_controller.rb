@@ -34,8 +34,14 @@ class CouponsController < ApplicationController
     else
       @parameter = params[:search].downcase
       cat = Category.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      cou = []
+      cat.map do |m|
+        cou.push(m.coupons)
+      end
       @coupons = Coupon.all.where("lower(title) LIKE :search OR lower(description) LIKE :search OR lower(app) LIKE :search", search: "%#{@parameter}%")
-      # @coupons.push(cat)
+      cou.map do |c|
+        @coupons = @coupons + c
+      end
     end
   end
 

@@ -8,7 +8,7 @@
         <%= link_to 'About Us' , home_about_path, id: "removelink" %>
       </div>
       <div style="margin-left: 1rem">
-        <%= link_to :Contact , home_contact_path, id: "removelink" %>
+        <%= link_to :Contact , new_contact_path, id: "removelink" %>
       </div>
     </div>
     <div class="col-md-6 col-sm-12 end-align">
@@ -45,9 +45,9 @@
           <input placeholder="Search term" /> -->
           <%= form_tag(search_path, :method=> "get") do %>
             <%= search_field_tag :search, params[:search],placeholder: "Search term" %>
-                <%= button_tag "     " ,id: "search-button", :class=> "btn btn-primary",:name => nil ,style:"height: 23px;width: 33px;background-color: white;border: none;" %>
-                <i class="fas fa-search"></i>
-          <% end %>
+              <%= button_tag "search" ,id: "search-button" , :class=> "btn btn-primary",:name => nil ,style:"height: 35px;width: 67px;padding-bottom: 30px;" %>
+               
+                <% end %>
         </div>
       </div>
       <div class="col-md-3 col-sm-8 col-6 center-align col-three">
@@ -66,19 +66,19 @@
               <div class="dropdown-content">
                 <% @arr.each do |c| %>
                   <%= link_to c.name, category_path(c) %>
-                    <% end %>
+                <% end %>
               </div>
             </div>
             </p>
           </div>
           <div class="Blog-Icon-container">
-            <i class="fa-solid fa-rss icons"></i>
+            <i class="fa-solid fa-rss icons" aria-hidden="true"></i>
             <p>
               <% if user_signed_in? %>
                 <%= link_to :Profile , home_profile_path, id: "removelink" %>
-                  <% else %>
-                    <%= link_to :Profile , new_user_session_path, id: "removelink" %>
-                      <% end %>
+              <% else %>
+                <%= link_to :Profile , new_user_session_path, id: "removelink" %>
+              <% end %>
             </p>
           </div>
         </div>
