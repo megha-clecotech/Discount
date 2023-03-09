@@ -598,7 +598,12 @@ button:focus:not(:focus-visible) {
     }
   }
   
-  .register{
+// coupons hover
+.list-shadow:hover
+{
+  box-shadow: 10px 10px 5px 12px lightgrey;
+
+ .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin-top: 3%;
     padding: 3%;
@@ -692,4 +697,5 @@ button:focus:not(:focus-visible) {
     margin-top: 8%;
     margin-bottom: -15%;
     color: #495057;
+
 }
