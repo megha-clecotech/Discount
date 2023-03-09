@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :coupons, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
+
   after_create :assign_default_coins
   def assign_default_coins
     self.update(coins: 0)
@@ -28,4 +29,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+      
+  validates :name, presence: {message: 'cannot be blank'}
+
 end

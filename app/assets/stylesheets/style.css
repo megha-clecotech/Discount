@@ -598,3 +598,7 @@ button:focus:not(:focus-visible) {
     }
   }
   
+.list-shadow:hover
+{
+  box-shadow: 10px 10px 5px 12px lightgrey;
+}
