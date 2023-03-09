@@ -18,7 +18,7 @@ class CouponsController < ApplicationController
     @user = current_user
     @coupon = @user.coupons.new(coupon_params)
     if @coupon.save
-      redirect_to home_profile_path
+      redirect_to new_coupon_path, notice: "coupon successfuly saved "
     end
   end
 

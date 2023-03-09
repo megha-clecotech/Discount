@@ -3,9 +3,6 @@ class HomeController < ApplicationController
     @coupons = Coupon.all
   end
 
-  def contact
-  end
-
   def about
   end
 

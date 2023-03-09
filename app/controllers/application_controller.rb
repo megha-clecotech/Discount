@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     @coupons = Coupon.all
     @categories = Category.all
     @arr = []
+    @contact = Contact.new
     @categories.each do |c|
       if c.subcategory.length != 0
         @arr.push(c)

@@ -5,7 +5,9 @@ $("#showUserDetails").html("<%= j render("show", user: @user) %>");
     if (j == 0) {
       document.getElementById('copybtn').style.display = 'block';
       document.getElementById('greypart').style.display = 'none';
-      document.getElementById('scimage').style.display = 'block';
+      <% if @coupon.coupon_file.attached? %>
+       document.getElementById('scimage').style.display = 'block';
+      <% end %> 
       navigator.clipboard.writeText('<%= @coupon.code %>')
     } else {
       var txt;
@@ -22,7 +24,9 @@ $("#showUserDetails").html("<%= j render("show", user: @user) %>");
                 });
                 document.getElementById('copybtn').style.display = 'block';
                 document.getElementById('greypart').style.display = 'none';
-                document.getElementById('scimage').style.display = 'block';
+                    <% if @coupon.coupon_file.attached? %>
+                           document.getElementById('scimage').style.display = 'block';
+                    <% end %> 
                 navigator.clipboard.writeText('<%= @coupon.code %>')
               } else {
                 alert("You don't have enough coins")

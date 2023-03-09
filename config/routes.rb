@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "home/index", to: "home#index"
   get "home/profile"
   get "home/about"
+  get "home/faq"
   get "categories/index"
   resources :contacts, only: [:new, :create]
   devise_for :users
