@@ -1,7 +1,8 @@
 class CouponsController < ApplicationController
+  before_action :go_to_user_login, only: [:index, :show, :new, :create]
+
   def index
     @user = current_user
-    @coupons = Coupon.all
   end
 
   def show
@@ -38,9 +39,9 @@ class CouponsController < ApplicationController
       cat.map do |m|
         cou.push(m.coupons)
       end
-      @coupons = Coupon.all.where("lower(title) LIKE :search OR lower(description) LIKE :search OR lower(app) LIKE :search", search: "%#{@parameter}%")
+      @couponsea = Coupon.all.where("lower(title) LIKE :search OR lower(description) LIKE :search OR lower(app) LIKE :search", search: "%#{@parameter}%")
       cou.map do |c|
-        @coupons = @coupons + c
+        @couponsea = @couponsea + c
       end
     end
   end

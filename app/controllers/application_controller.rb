@@ -5,14 +5,21 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_nav
 
+  def go_to_user_login
+    if current_user.present? == false
+      redirect_to user_session_path
+      flash[:alert] = "You need to login first"
+    end
+  end
+
   def set_nav
-    @coupons = Coupon.all
-    @categories = Category.all
-    @arr = []
+    $coupons = Coupon.all
+    $categories = Category.all
+    $arr = []
     @contact = Contact.new
-    @categories.each do |c|
+    $categories.each do |c|
       if c.subcategory.length != 0
-        @arr.push(c)
+        $arr.push(c)
       end
     end
   end
