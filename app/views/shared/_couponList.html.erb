@@ -1,5 +1,10 @@
+<% if @couponsea.nil? %>
+  <% coupons = $coupons%>
+<% else %>
+  <% coupons = @couponsea %> 
+<% end %> 
 <div class="col-md-9 col-sm-12 space gy-4">
-        <% @coupons.each do |c| %>
+        <% coupons.each do |c| %>
           <div class="full-coupon list-shadow">
             <div class="list-container ">
               <div class="row">

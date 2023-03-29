@@ -598,12 +598,13 @@ button:focus:not(:focus-visible) {
     }
   }
   
-// coupons hover
+ /* coupons hover */
 .list-shadow:hover
 {
   box-shadow: 10px 10px 5px 12px lightgrey;
 
- .register{
+}
+.register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin-top: 3%;
     padding: 3%;

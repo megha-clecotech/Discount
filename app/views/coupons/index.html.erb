@@ -1,5 +1,10 @@
 <h1>Coupons</h1>
-<% @coupons.each do |c|%>
+<% if @couponsea.nil? %>
+  <% coupons = $coupons%>
+<% else %>
+  <% coupons = @couponsea %> 
+<% end %> 
+<% coupons.each do |c|%>
     <strong>ID :</strong><%= c.id %><br/>
     <%= c.title %><br/>
     <%= c.description %><br/>

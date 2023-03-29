@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @coupons = Coupon.all
   end
 
   def about
